@@ -183,6 +183,12 @@
             const items = getItemsFromStorage();
             items.push({ text, id });
             localStorage.setItem("items", JSON.stringify(items));
+
+            if (!list.childNodes.length) {
+                showToolTip()
+            } else {
+                hideToolTip()
+            }
         }
 
         function showToolTip() {
