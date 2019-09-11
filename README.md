@@ -6,3 +6,5 @@ Simple todo list with html, css and vanilla js.
 - Ability to edit specific todo by clicking on todo's text
 
 Just open index.html in browser
+
+### [See this demo](https://maksimkunaev.github.io/todo-list/).
