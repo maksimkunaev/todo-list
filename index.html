@@ -114,10 +114,17 @@
             cursor: pointer;
         }
 
-        .checkbox:checked + .text {
+        .label. ~ .checkbox:checked + .text {
             text-decoration: line-through;
             opacity: 0.4;
         }
+
+
+        .text-checked {
+            text-decoration: line-through;
+            opacity: 0.4;
+        }
+
 
         .tool-tip {
             display: none;
@@ -247,14 +254,15 @@
             const deleteButton = document.createElement('button');
             const checkBoxLabel = document.createElement('label');
             const checkBox = document.createElement('input');
-
+            const textWrapper = document.createElement('span');
+            const textNode = document.createTextNode(text);
             checkBox.setAttribute('type', 'checkbox');
 
             if (checked) {
                 checkBox.checked = true
+                textWrapper.classList.add("text-checked");
             }
-            const textWrapper = document.createElement('span');
-            const textNode = document.createTextNode(text);
+
 
             checkBoxLabel.classList.add("label");
             listElem.classList.add("list-elem");
@@ -265,10 +273,12 @@
             textWrapper.setAttribute('contenteditable', 'true');
 
             deleteButton.addEventListener('click', deleteElement.bind(this, list, listElem, id));
-            checkBox.addEventListener('change', switchCheckBox.bind(this, checkBox, id));
+            checkBox.addEventListener('change', switchCheckBox.bind(this, checkBox, textWrapper, id));
             textWrapper.addEventListener('input', changeToDo.bind(this, id));
 
-            function switchCheckBox(listElem, id) {
+            function switchCheckBox(listElem, textWrapper, id) {
+                textWrapper.classList.toggle("text-checked");
+
                 let items = getItemsFromStorage();
                 items = items.map(item => {
                     let newItem = { ...item };
