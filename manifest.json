@@ -24,9 +24,9 @@
       "type": "image/png"
     }
   ],
-  "start_url": "/todo-list/index.html",
-  "gcm_sender_id": "103953800507",
+  "lang": "en-US",
+  "start_url": "./index.html",
   "display": "standalone",
-  "background_color": "#FF9800",
-  "theme_color": "#FF9800"
+  "background_color": "white",
+  "theme_color": "white"
 }
